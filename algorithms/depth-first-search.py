@@ -12,6 +12,11 @@ class DepthFirstSearch:
             for neighbour in self.graph[current]:
                 self.stack.append(neighbour)
 
+    def recursive_search(self):
+        for neighbour in self.stack:
+            self.search_value = neighbour
+            self.recursive_search()
+
 graph = {
     "a": ["c", "b"],
     "b": ["d"],
@@ -23,5 +28,6 @@ graph = {
 
 depth_first_search = DepthFirstSearch(graph, "a")
 depth_first_search.search()
+depth_first_search.recursive_search()
 
 
