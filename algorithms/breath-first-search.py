@@ -1,8 +1,21 @@
-class BreathFirstSearch:
-    def __init__(self, graph, search_value) -> None:
-        self.graph = graph
-        self.search_value = search_value
-        self.queue = [search_value]
+def breath_first_search(graph, value):
+    queue = [value]
 
-    def search() -> None:
-        pass 
+    while len(queue) > 0:
+        current = queue.pop(0)
+        print(current)
+        for neighbour in graph[current]:
+            queue.append(neighbour)
+
+            
+
+graph = {
+    "a": ["c", "b"],
+    "b": ["d"],
+    "c": ["e"],
+    "d": ["f"],
+    "e": [],
+    "f": []
+}
+
+breath_first_search(graph, "a")
