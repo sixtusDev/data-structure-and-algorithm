@@ -22,7 +22,7 @@ def string_permutation(str, pattern):
             window_start += 1
         
         if check_permutation(sub_string, pattern):
-            return True            
+            return True
 
     return False
 
