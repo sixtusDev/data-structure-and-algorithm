@@ -1,6 +1,3 @@
-from itertools import count
-
-
 class Node:
     def __init__(self, data, next=None) -> None:
         self.data = data

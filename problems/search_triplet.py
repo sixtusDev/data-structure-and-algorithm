@@ -12,18 +12,18 @@ def search_triplets(array):
         while low < high:
             if array[low] + array[high] == current_sum:
                 result.append([array[i], array[low], array[high]])
-                while low < high and  array[low] == array[low + 1]: 
-                    print(True)
+                while low < high and  array[low] == array[low + 1]:
+                    print("Low")
                     low += 1
-                while low < high and  array[high] == array[high - 1]: 
-                    print(True)
+                while low < high and  array[high] == array[high - 1]:
+                    print("high")
                     high -= 1
                 low += 1
                 high -= 1
             elif array[low] + array[high] > current_sum:
-                low += 1
-            else:
                 high -= 1
+            else:
+                low += 1
     
     return result
 
