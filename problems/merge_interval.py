@@ -6,7 +6,6 @@ def merge_interval(array):
         curr_last_item = output[-1][1]
 
         if start <= curr_last_item:
-            print("gggg")
             output[-1][1] = max(end, curr_last_item)
         else:
             output.append([start, end])
