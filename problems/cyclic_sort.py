@@ -3,7 +3,7 @@ def cyclic_sort(nums):
 
     while i < len(nums):
         j = nums[i] - 1
-        if nums[i] != nums[j]:
+        if nums[i] != i + 1:
             nums[i], nums[j] = nums[j], nums[i]
         else:
             i = i + 1
