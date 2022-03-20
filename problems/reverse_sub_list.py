@@ -11,15 +11,29 @@ class Node:
             temp = temp.next
         print()
 
-def reverse_linked_list(head):
-    current, previous, next = head, None, None
+def reverse_sub_list(head, p, q):
+    if p == q:
+        return head
 
-    while current is not None:
+    current, previous = head, None
+    i = 1
+    while i < p:
+        previous = current
+        current = current.next
+        i = i + 1
+    
+    first_last_node = previous
+
+    i = 1
+    while i < q:
         next = current.next
         current.next = previous
         previous = current
-        current = next
-    return previous
+        current = current.next
+    
+    
+    
+
 
 def main():
     head = Node(1)
@@ -28,7 +42,7 @@ def main():
     head.next.next.next = Node(4)
     head.next.next.next.next = Node(5)
 
-    reversed_list = reverse_linked_list(head)
-    reversed_list.print_list()
+    # reversed_list = reverse_linked_list(head)
+    # reversed_list.print_list()
 
 main()
