@@ -18,19 +18,19 @@ def traverse(root):
     queue.append(root)
 
     while queue:
-        level_nodes = []
+        level_sum = 0.0
         level_length = len(queue)
 
         for _ in range(level_length):
             current_node = queue.popleft()
-            level_nodes.append(current_node.value)
+            level_sum += current_node.value
 
             if current_node.left:
                 queue.append(current_node.left)
             if current_node.right:
                 queue.append(current_node.right)
 
-        result.append(sum(level_nodes)/len(level_nodes))
+        result.append(level_sum/level_length)
 
     return result
 
