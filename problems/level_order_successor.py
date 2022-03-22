@@ -5,7 +5,7 @@ from collections import deque
 
 class TreeNode:
     def __init__(self, val, left=None, right=None):
-        self.val = val,
+        self.val = val
         self.left = left
         self.right = right
 
@@ -22,15 +22,15 @@ def find_successor(root, key):
         for _ in range(level_size):
             current_node = queue.popleft()
 
-            if current_node.val == key:
-                if queue and queue[0]:
-                    return queue[0].val
             
             if current_node.left:
                 queue.append(current_node.left)
             if current_node.right:
                 queue.append(current_node.right)
     
+            if current_node.val == key:
+                if queue and queue[0]:
+                    return queue[0].val
     return None
 
 def main():
