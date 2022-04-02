@@ -6,15 +6,20 @@ def ceiling_of_a_number(arr, target):
     left = 0
     right = len(arr) - 1
 
+    if target > arr[right]:
+        return -1
+
     while left <= right:
         mid = (left + right) // 2
 
-        if arr[mid] >= target:
-            return mid
-        else:
+        if target > arr[mid]:
             left = mid + 1
+        elif target < arr[mid]:
+            right = mid - 1
+        else:
+            return mid
 
-    return -1
+    return left
 
 
 print(ceiling_of_a_number([4, 6, 10], -1))
