@@ -17,4 +17,4 @@ def ceiling_of_a_number(arr, target):
     return -1
 
 
-print(ceiling_of_a_number([4, 6, 10], 12))
+print(ceiling_of_a_number([4, 6, 10], -1))
