@@ -22,8 +22,24 @@ def check_permutation_using_hash_map(stringA, stringB):
     
     return False if len(char_ocurrence) > 0 else True
 
+def check_permutation_using_ascii(stringA, stringB):
+    if len(stringA) != len(stringB):
+        return False
+    
+    ascii_characters = [0]*128
+
+    for char in stringA:
+        ascii_characters[ord(char)] += 1
+
+    for char in stringB:
+        ascii_characters[ord(char)] -= 1
+        if ascii_characters[ord(char)] < 0:
+            return False
+
+    return True
 
 def main():
     print(check_permutation_using_hash_map("abc", "bca"))
+    print(check_permutation_using_ascii("abc", "csa"))
 
 main()
