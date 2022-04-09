@@ -5,7 +5,7 @@
 # Input: Tact Coa
 # Output: True (permutations: "taco catJJ, "atco ctaJJ, etc.)
 
-def palindrome_permutation(string):
+def palindrome_permutation_using_hash_map(string):
     string = string.lower().replace(" ", "")
 
     char_occurences = {}
@@ -16,13 +16,31 @@ def palindrome_permutation(string):
         else:
             char_occurences[char] = 1
 
-    odd_occurencence = 0
+    odd_occurence = 0
     for _, value in char_occurences.items():
         if value % 2 != 0:
-            odd_occurencence += 1
-        if odd_occurencence > 1:
+            odd_occurence += 1
+        if odd_occurence > 1:
             return False
 
     return True
 
-print(palindrome_permutation("Tact Coa"))
+def palindrome_permutation_using_bit_vector(string):
+    string = string.lower().replace(" ", "")
+
+    # Assuming all characters in string are ASCII
+    char_XOR = [0] * 128
+
+    for char in string:
+        char_XOR[ord(char)] =  char_XOR[ord(char)] ^ 1
+
+    odd_occurence = 0
+    for bit in char_XOR:
+        if bit == 1:
+            odd_occurence += 1
+        if odd_occurence > 1:
+            return False
+    return True
+
+print(palindrome_permutation_using_hash_map("Tact Coa"))
+print(palindrome_permutation_using_bit_vector("Tact cCoa"))
